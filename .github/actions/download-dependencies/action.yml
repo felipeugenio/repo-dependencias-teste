@@ -1,5 +1,5 @@
 name: "Download Dependencies"
-description: "Action to download dependencies from dependencias.xml"
+description: "Action to download dependencies from dependeeencias.xml"
 runs:
   using: "node12"
   main: "index.js"
