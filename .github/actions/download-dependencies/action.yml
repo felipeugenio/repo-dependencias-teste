@@ -1,0 +1,10 @@
+name: "Download Dependencies"
+description: "Action to download dependencies from dependencias.xml"
+runs:
+  using: "node12"
+  main: "index.js"
+inputs:
+  dependency_file:
+    description: "Path to the dependency file"
+    required: true
+    default: "dependencias.xml"

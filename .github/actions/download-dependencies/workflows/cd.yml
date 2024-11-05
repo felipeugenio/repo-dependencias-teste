@@ -1,0 +1,31 @@
+name: Download Dependencies Workflow
+
+#on: [push, pull_request]
+on:
+  workflow_dispatch
+
+jobs:
+  download-dependencies-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('dependencias.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Run Download Dependencies Action
+        uses: ./.github/actions/download-dependencies
+        with:
+          dependency_file: 'dependencias.xml'
