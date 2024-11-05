@@ -1,8 +1,7 @@
 name: Download Dependencies Workflow
 
-#on: [push, pull_request]
-on:
-  workflow_dispatch
+on: [push, pull_request]
+
 
 jobs:
   download-dependencies-job:
